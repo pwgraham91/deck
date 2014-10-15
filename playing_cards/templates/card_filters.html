@@ -1,0 +1,29 @@
+{% load list_filters %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+We have {{ cards | length }} cards!
+
+{% for card in cards %}
+    <div>
+        <p>
+            Capitalized Suit: {{ card.get_suit_display | capfirst }} <br>
+            Uppercased Rank: {{ card.rank | upper }}
+        </p>
+    </div>
+    <div>
+        <p>
+            Aces only: {{ card|aces_only }}
+        </p>
+        <p>
+            Twos only: {{ card|rank_only:"two" }}
+        </p>
+    </div>
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+    <h2>War!</h2>
+    <p style="float: left">Your card: {% include 'includes/hand.html' with cards=user_cards %} </p>
+    <p style="float: right">Computer card: {% include 'includes/hand.html' with cards=dealer_cards %} </p>
+<div style="clear: both; text-align: center;">
+    {% if result == 1 %}
+    <h2> <<<< </h2>
+        <h2>You Won</h2>
+    {% elif result == 2 %}
+    <h2> <<<<>>>> </h2>
+        <h2>You Tied</h2>
+    {% else %}
+    <h2> >>>> </h2>
+        <h2>You Lost</h2>
+    {% endif %}
+<a href="{% url 'war' %}">Play Again</a>
+</div>
+
+{% endblock content %}

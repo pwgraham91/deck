@@ -1,0 +1,50 @@
+{% load list_filters %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    {% if some_variable == 0 %}
+        <span>Some text for 0</span>
+    {% elif some_variable == 1 %}
+        <span>Some text for 1!</span>
+    {% else %}
+        <span>Some text for everything else...</span>
+    {% endif %}
+</div>
+<div>
+    {% for card in cards %}
+        {% if card.suit == 0 %}
+            <p>Truncated: {{ card.get_suit_display|first }}</p>
+            {% with cards|first_two as first_card %}
+            <p>custom: {{ card.get_suit_display }}</p>
+            <p>{{ card.get_suit_display|first_two }}</p>
+            {% endwith %}
+        {% endif %}
+        <p>Suit: {{ card.suit }}, Rank: {{ card.rank }}</p>
+    {% endfor %}
+</div>
+<div>
+    <style>
+    .odd {
+        color: blue;
+    }
+</style>
+
+It's {% now "F, Y" %}!
+
+{% for card in cards %}
+    <p class="{% cycle 'even' 'odd' %}">
+        Suit: {{ card.get_suit_display }}, Rank: {{ card.rank }}
+    </p>
+{% endfor %}
+
+</div>
+<div>
+{#    {{ cards|random }}#}
+</div>
+</body>
+</html>

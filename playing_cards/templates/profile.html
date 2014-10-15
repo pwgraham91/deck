@@ -1,0 +1,12 @@
+{% extends 'base_template.html' %}
+{% block title %}Profile{% endblock title %}
+{% block content %}
+    <p>Hi {{ user.first_name }}. You've won {{ wins }} games, lost {{ losses }} games, and tied {{ draws }} of {{ total }} games. Your total score is {{ score }}.</p>
+    <p>Last Login: {{ user.last_login }} </p>
+    <p>Your email address is {{ user.email }}</p>
+    <p>Your phone number is {{ user.phone }}</p>
+    <p>All games:</p>
+    {% for game in games %}
+    {{ game.get_result_display }}
+    {% endfor %}
+{% endblock content %}

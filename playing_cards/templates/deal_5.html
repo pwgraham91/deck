@@ -1,0 +1,7 @@
+{% extends 'base_template.html' %}
+{% block title %}Deal 5 Cards{% endblock title %}
+{% block content %}
+{% for card in hand %}
+    {{ card }},
+{% endfor %}
+{% endblock content %}
