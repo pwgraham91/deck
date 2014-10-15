@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'e72sz7r2^4*@c%@=z_n1m!p%@l)c8!8&wk)%+m-2&^=(i9+*u)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -90,15 +90,16 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, "static", *MEDIA_URL.strip("/").split("/"))
 STATIC_URL = '/static/'
 
-try:
-    from local_settings import *
-except ImportError:
-    pass
+
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'pwgraham91@gmail.com'
-EMAIL_HOST_PASSWORD = 'Zephyr00'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = 'pwgraham91@gmail.com'
 AUTH_USER_MODEL = 'playing_cards.Player'
+try:
+    from local_settings import *
+except ImportError:
+    pass
