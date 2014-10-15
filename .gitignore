@@ -53,8 +53,4 @@ docs/_build/
 # PyBuilder
 target/
 .idea/
-<<<<<<< HEAD
 local_settings.py
-=======
-local_settings.py
->>>>>>> 454ad5091fda1f7952667b0c417b21788d3f90e7
